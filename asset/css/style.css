@@ -1,0 +1,337 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    background-color: #fbfbfb;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 94px;
+    background-color: #f8f9fa;
+}
+
+.logo {
+    width: 12%;
+    padding: 16px 32px 16px 208px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.menu ul li{
+    display: inline-block;
+    list-style-type: none;
+    line-height: 94px;
+    font-size: 18px;
+    margin-left: 64px;
+}
+
+.menu a {
+    color: #4f5665;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #f65465;
+}
+
+.container{
+    width: 74%;
+    margin: 0 auto;
+}
+
+#album {
+    margin-top: 94px;
+    margin-bottom: 66px;
+}
+
+#album button {
+    font-size: 24px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 24px;
+    padding: 8px 16px;
+    border: 1px solid #fff;
+}
+
+#album button:hover {
+    background-color: #f65465;
+}
+
+#album #back {
+    position: absolute;
+    top: 358px;
+    left: 226px;
+}
+
+#album #next {
+    position: absolute;
+    top: 358px;
+    right: 226px;
+}
+
+.show_slide {
+    margin-top: 8px;
+}
+
+.show_slide img {
+    width: 100%;
+}
+
+.slide.anchor {
+    display: block;
+}
+
+.slide {
+    display: none;
+}
+
+.order {
+    background-color: #000;
+    padding: 8px 0;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    margin-top: -8px;
+}
+
+#dk {
+    width: 35%;
+    border: 1px solid;
+    padding: 36px 54px 0px 36px;
+}
+
+#dk button {
+    
+    background-color: #000;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+#dk button:hover {
+    background-color: red;
+} 
+
+form {
+    background-color: #fff;
+}
+
+h2 {
+    text-align: center;
+}
+
+#dk h1 {
+    text-align: center;
+    margin-left: 34px;
+}
+
+input, fieldset {
+    border-radius: 4px;
+    width: 100%;
+    padding: 2px 8px;
+    
+}
+
+#pt form input {
+    width: 50%;
+    text-align: center;
+}
+
+#pt form input:focus {
+    border: 2px solid #f65465;
+    background-color: antiquewhite;
+}
+
+
+#pt div {
+    text-align: center;
+}
+
+#dongho p {
+    color: #f65465;
+    text-align: center;
+}
+
+#slg {
+    color: #f65465;
+}
+
+select {
+    border-radius: 4px;
+    width: 103%;
+    padding: 4px 0;
+}
+
+textarea {
+    width: 103%;
+}
+
+.pt_dk div {
+    margin-bottom: 12px;
+}
+
+.suscess span {
+    font-weight: 600;
+}
+
+label > input,
+fieldset > input {
+    width: 16px;
+}
+
+
+form button {
+    margin-left: 16%;
+    margin-top: 16px;
+    padding: 6px 18px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    background-color: rgb(0, 26, 255);
+}
+
+form button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#pt {
+    width: 35%;
+    border: 1px solid;
+    padding: 36px 44px;
+}
+
+.pt_dk {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 32px;
+    margin: 46px 0;
+}
+
+
+p {
+    padding: 16px 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+footer p {
+    color: bisque;
+    font-style: italic;
+}
+
+button {
+    padding: 4px 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    margin: 12px 16px;
+}
+
+button:hover {
+    color: #fff;
+    background-color: red;
+}
+
+.solan {
+    border-bottom: 1px solid #fff;
+    font-size: 18px;
+}
+
+p span {
+    width: 110px;
+    display: inline-block;
+    
+}
+
+input {
+    font-size: 16px;
+}
+
+.suscess {
+    border: 1px solid #fff;
+    display: inline-block;
+    padding: 20px 52px;
+    font-size: 18px;
+}
+
+.suscess span {
+    margin-left: 52px;
+}
+
+.suscess p {
+    text-align: center;
+}
+
+footer p span {
+    width: 22px;
+}
+
+.send {
+    margin: 18px 0;
+    text-align: center;
+}
+
+#banhang {
+    text-align: center;
+    margin: 46px 0;
+}
+
+#banhang h2 {
+    margin-bottom: 16px;
+}
+
+#banhang select {
+    margin-bottom: 20px;
+    font-size: 14px;
+    padding: 4px;
+    width: 112px;
+    text-align: center;
+}
+
+
+
+table {
+    width: 100%;
+    background-color: aqua;
+    border-collapse: separate;
+
+}
+
+th, td {
+    font-size: 18px;
+    padding: 4px 22px;
+}
+
+tr input {
+    width: 80%;
+}
+
+.form-group span {
+    visibility: hidden;
+}
+
+.form-group.error span {
+    visibility: visible;
+    color: red;
+}
+
+.form-group.error .note,
+.form-group.error .dk {
+    background-color: yellow;
+}
+
+.form-group.success .note,
+.form-group.success .dk {
+    border: 2px solid green;
+}
+

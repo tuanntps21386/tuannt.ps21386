@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ps21386_Nguyễn Thanh Tuấn</title>
+    <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="logo">
+                <img src="./img/FPT.png" alt="">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#album">Album</a></li>
+                    <li><a href="#pt">Giải PT</a></li>
+                    <li><a href="giohang.html">Bán hàng</a></li>
+                    <li><a href="#dk">Đăng ký</a></li>
+                    <li><a href="">Trợ giúp</a></li>
+                    <li><a href="">Tư vấn</a></li>
+                </ul>
+            </div>
+        </div>
+<div class="container">
+    <div id="album">
+                <button id="back" onclick="back()"><</button>
+                <button id="next" onclick="next()">></button>
+
+                <div class="show_slide" >
+                    <div class="slide anchor" id="show">
+                        <img src="./img/slide1.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="./img/slide2.jpg" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="./img/slide3.jpg" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="./img/slide4.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="./img/slide5.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="order" id="dem">
+                    <span id="head">1</span>/
+                    <span id="last">5</span>
+                </div>
+    </div>
+    
+    <script>
+        var show_slide = document.querySelector('.show_slide').children;
+        var slideLength = show_slide.length;
+        var backBtn = document.querySelector('#back');
+        var nextBtn = document.querySelector('#next');
+        var number = document.querySelector('#head');
+        var index = 0;
+
+        backBtn.onclick = function(){
+            changeSlide('back');
+        }
+
+        nextBtn.onclick = function(){
+            changeSlide('next');
+
+        }
+
+        function changeSlide(huong){
+            if(huong == 'next'){
+                index++;
+                if(index == slideLength){
+                    index = 0;
+                }
+                number.innerHTML = index + 1;
+            }
+            else{
+                index--;
+                if(index < 0){
+                    index = slideLength-1;
+                }
+                number.innerHTML = index + 1;
+            }
+
+            for(var i=0; i<slideLength; i++){
+                show_slide[i].classList.remove('anchor');
+            }
+            show_slide[index].classList.add('anchor');
+
+        }
+    </script>
+
+    <hr>
+
+    <div class="pt_dk">
+        <div id="dk">
+            <div class="khung">
+                <div class="tittle">
+                    <h1>Đăng ký thành viên</h1>
+                </div>
+
+                <div id="noidung">
+                    <form id="form">
+                        <div class="form-group">
+                            <legend>Mã sinh viên</legend>
+                            <input type="text" class="dk" id="msv">
+                            <span></span>
+                        </div>
+
+                        <div class="form-group">
+                            <legend>Họ và Tên</legend>
+                            <input type="text" class="dk" id="name">
+                            <span></span>
+                        </div>
+
+                        <div class="form-group">
+                            <legend>Email</legend>
+                            <input type="email" class="dk" id="email">
+                            <span></span>
+                        </div>
+
+                        <div class="form-group">
+                            <legend>Giới tính</legend>
+                            <div id="frames">
+                                <fieldset class="nho">
+                                    <input type="radio" name="gender"> Nam
+                                    <input type="radio" name="gender"> Nữ
+                                </fieldset>
+                            </div>
+                            <p class="gender p"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <legend>Sở thích</legend>
+                            <div id="frames2">
+                                <fieldset class="nho">
+                                    <input type="checkbox" name="checkbox">
+                                    <label>Đọc sách</label>
+                                    <input type="checkbox" name="checkbox">
+                                    <label>Du lịch</label>
+                                    <input type="checkbox" name="checkbox">
+                                    <label>Âm nhạc</label>
+                                    <input type="checkbox" name="checkbox">
+                                    <label>Ẩm thực</label>
+                                    <input type="checkbox" name="checkbox">
+                                    <label>Khác</label>
+                                </fieldset>
+                            </div>
+                            <p class="hobby p"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <legend>Quốc tịch</legend>
+                            <select name="select" class="select" id="nationality">
+                                <option value="0">Chọn Quốc Tịch</option>
+                                <option value="1">Việt Nam</option>
+                                <option value="2">China</option>
+                                <option value="3">Japan</option>
+                                <option value="4">Korea</option>
+                            </select>
+                            <p class="nationality p"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <legend>Ghi chú</legend>
+                            <textarea type="textarea" class="note" id="note" rows="8"></textarea><br>
+                            <span></span>
+                        </div>
+                        <div class="but">
+                            <br><button class="button">Đăng ký</button>
+                            <button type="submit" class="button">Nhập lại</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            // var $ = document.querySelector.bind(document);
+            // var $$ = document.querySelectorAll.bind(document);
+
+            // var form = $("#dk");
+            // var msv = $("#msv");
+            // var fullName = $("#msv");
+
+            var $ = document.querySelector.bind(document);
+            var $$ = document.querySelectorAll.bind(document);
+
+            var form = $('#dk');
+            var mssv = $('#msv');
+            var fullName = $('#name');
+            var email = $('#email');
+            var genders = $$('input[name="gender"]');
+            var interests = $$('input[name="checkbox"]');
+            var nationality = $('#nationality');
+            var note = $('#note');
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                validator();
+            })
+
+            function validator() {
+                //Không để trống: mã, họ tên và email
+                if (mssv.value === '') {
+                    errorMessage(mssv, 'Không để trống mã');
+                }else if(mssv.value.length == 7){
+                    successMessage(mssv);
+                } else {
+                    errorMessage(mssv, 'Nhập đúng 7 kí tự');
+                }
+
+                //Không để trống họ tên 
+                if (fullName.value === '') {
+                    errorMessage(fullName, 'Không để trống họ tên ');
+                }else if(fullName.value.length > 30){
+                    errorMessage(fullName, 'Tối đa 30 ký tự');
+                } else {
+                    successMessage(fullName);
+                }
+
+                //Không để trống email 
+                if (email.value === '') {
+                    errorMessage(email, 'Không để trống email ');
+                } else {
+                    successMessage(email);
+                }
+
+                //Phải chọn giới tính
+                if (!genders[0].checked && !genders[1].checked) {
+                    $('.gender').innerText = 'Phải chọn giới tính';
+                    $('#frames').style.background = 'yellow';
+                } else {
+                    $('.gender').innerText = '';
+                    $('#frames').style.background = 'none';
+                    $('#frames').style.borderColor = 'green';
+                }
+
+                //Phải chọn sở thích 
+                var check = 0
+                for (var i = 0; i < interests.length; i++) {
+                    if (interests[i].checked == true) {
+                        check++
+                    }
+                }
+                if (check == 0) {
+                    $('.hobby').innerText = 'Phải chọn sở thích';
+                    $('#frames2').style.background = 'yellow';
+                } else {
+                    $('.hobby').innerText = '';
+                    $('#frames2').style.background = 'none';
+                    $('#frames2').style.borderColor = 'green';
+                }
+
+                //Phải chọn quốc tịch
+                if (nationality.value == 0) {
+                    $('.nationality').innerText = 'Phải chọn quốc tịch';
+                    $('select').style.background = 'yellow';
+                } else {
+                    $('.nationality').innerText = '';
+                    $('select').style.background = 'none';
+                    $('select').style.borderColor = 'green';
+                }
+
+                //Ít hơn 200 ký tự: ghi chú
+                if (note.value.length > 200) {
+                    errorMessage(note, 'Ít hơn 200 ký tự');
+                } else {
+                    successMessage(note);
+                }
+            }
+
+            //set lỗi
+            function errorMessage(input, message) {
+                var formGroup = input.parentElement;
+                var span = formGroup.querySelector('span');
+                formGroup.className = 'form-group error';
+                span.innerText = message;
+            }
+
+            //set thành công
+            function successMessage(input) {
+                var formGroup = input.parentElement;
+                formGroup.className = 'form-group success';
+            }
+
+        </script>
+        <div id="pt">
+            <script>
+                function choSo() {
+                    var a = Math.round(Math.random() * (10 - (-10))+(-10));
+                    var b = Math.round(Math.random() * (10 - (-10))+(-10));
+                    var c = Math.round(Math.random() * (10 - (-10))+(-10));
+
+                    document.getElementById("soa").value = a;
+                    document.getElementById("sob").value = b;
+                    document.getElementById("soc").value = c;
+
+                    var btn = document.getElementById("btngiai");
+                    btn.disabled = false;
+                }
+
+                function soPhuongTrinh(){
+                    var a = document.getElementById('soa').value;
+                    var b = document.getElementById('sob').value;
+                    var c = document.getElementById('soc').value;
+
+
+                    if((a > 0 && a!=1) || (a < 0 && a!= -1)){
+                        var a1 = a+"x<sup>2</sup>";
+                    }else if(a == 1){
+                        var a1 = "x<sup>2</sup>";
+                    }else if(a == -1){
+                        var a1 = "-x<sup>2</sup>";
+                    }else{
+                        var a1 = "";
+                    }
+
+                    if(b > 0 && b!=1){
+                        var b1 = "+"+b+"x";
+                    }else if(b < 0 && b!=-1){
+                        var b1 = b+"x";
+                    }else if(b == 1){
+                        var b1 = "+x";
+                    }else if(b == -1){
+                        var b1 = "-x";
+                    }else{
+                        var b1 = "";
+                    }
+
+                    if(c > 0){
+                        var c1 = "+"+c+ " = 0";
+                    }else if(c < 0){
+                        var c1 = c+" = 0";
+                    }else{
+                        var c1 = " = 0";
+                    }
+
+                    if(a==0 && b==0 && c==0){
+                    var c1 = "0 = 0";
+                    }
+
+                    var sopt = a1+b1+c1;
+                    document.getElementById("sopt").innerHTML = sopt;
+                    }
+            
+            </script>
+            <h2>GIẢI PHƯƠNG TRÌNH <b id="sopt"></b></h2>
+            <p class="solan">Số lần giải: <b id="slg"></b></p>
+            <form action="">
+                <p><label>Nhập số a: </label><input type="text" onchange="soPhuongTrinh(soa);" id="soa"></p>
+                <p><label>Nhập số b: </label><input type="text" onchange="soPhuongTrinh(sob);" id="sob"></p>
+                <p><label>Nhập số c: </label><input type="text" onchange="soPhuongTrinh(soc);" id="soc"></p>
+            </form>
+
+
+            <div class="send">
+                <button type="button" disabled id="btngiai" onclick="giai(); solan();">GIẢI PT</button>
+                <button type="button" id="choso" onclick="choSo(); soPhuongTrinh();">CHO SỐ</button>
+            </div>
+
+            <div class="suscess">
+                <span id="nghiem1"></span>
+            </div>
+
+            <div id="dongho">
+                <script>
+                    var tg = setInterval("thoigian()", 1000);
+                </script>
+            </div>
+            <script>
+                function solan(){
+                    var slx = sessionStorage.getItem("slg");
+                if (slx == null) slx = 0;
+                slx++;
+                sessionStorage.setItem("slg", slx);
+                document.getElementById("slg").innerHTML = slx;
+                }
+
+
+                function thoigian() {
+                    var today = new Date();
+                    var date = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    var dateTime = "<p>Bây giờ là: " + date + " - " + time + "</p>";
+                    document.getElementById("dongho").innerHTML = dateTime;
+                }
+
+                function giai() {
+                    var a = document.getElementById('soa').value;
+                    var b = document.getElementById('sob').value;
+                    var c = document.getElementById('soc').value;
+
+                    if(isNaN(a) || isNaN(b) || isNaN(c)){
+                        alert("Hệ số a,b,c không hợp lệ");
+                    }else if( (a > 10) || ( a < -10) || (b > 10) || ( b < -10) || (c > 10) || ( c < -10)){
+                        alert("Hệ số a,b,c không được nhỏ hơn -10 và lớn hơn 10");
+                    }else{
+                    if (a == 0) {
+                        if (b == 0) {
+                            if (c == 0) document.getElementById("nghiem1").innerHTML = "Phương trình có vô số nghiệm";
+                            else document.getElementById("nghiem1").innerHTML = "Phương trình vô nghiệm";
+                        }
+                        else {
+                            var x3 = -c / b;
+                            document.getElementById("nghiem1").innerHTML = "Phương trình có nghiệm duy nhất = " + x3 ;
+                        }
+                    } else {
+                        var delta = Math.pow(b, 2) - 4 * a * c;
+                        if (delta < 0) {
+                            document.getElementById("nghiem1").innerHTML = "Phương trình vô nghiệm";
+                        }
+                        else if (delta == 0) {
+                            var x0 = (-b / (2 * a)).toFixed(2);
+                            document.getElementById("nghiem1").innerHTML = "Phương trình có nghiệm kép x<sub>0</sub> = " + x0;
+
+                        }
+                        else {
+                            var x1 = ((-b + Math.sqrt(delta)) / (2 * a)).toFixed(2);
+                            var x2 = ((-b - Math.sqrt(delta)) / (2 * a)).toFixed(2);
+                            var tong = ((Number(x1) + Number(x2))).toFixed(2);
+                            var tich = (x1*x2).toFixed(2);
+                            document.getElementById("nghiem1").innerHTML = "Phương trình có 2 nghiệm: <br> <p>x<sub>1</sub> = " + x1 + "</br>  x<sub>2</sub> = " + x2 + "<br><br> Tổng = " + tong + "<br> Tích = " + tich + "</p>";
+                        }
+
+                    }
+                    var btn = document.getElementById("btngiai");
+                    btn.disabled = true;
+                }
+            }
+
+
+                function lamlai() {
+                    var a = document.getElementById('soa').value = "";
+                    var b = document.getElementById('sob').value = "";
+                    var c = document.getElementById('soc').value = "";
+                }
+            </script>
+        </div>
+    </div>
+
+</div>
+</div>
+</body>
+</html>

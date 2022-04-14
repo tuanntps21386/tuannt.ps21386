@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="./asset/css/giohang.css">
+</head>
+
+<body>
+    <div class="giohang">
+        <a onclick="showcart();"><img src="./img/cart.png"><span id="countsp">0</span></a>
+    </div>
+    <div id="showcart">
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Hình</th>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền ($)</th>
+            </tr>
+            <tbody id="mycart">
+
+            </tbody>
+
+        </table>
+    </div>
+    <div class="boxcenter">
+        <div class="row mb header">
+            <h1> SIÊU THỊ TRỰC TUYẾN</h1>
+        </div>
+
+        <div class="row mb menu">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.html#album">Album</a></li>
+                <li><a href="index.html#pt">Giải PT</a></li>
+                <li><a href="index.html#dk">Đăng ký</a></li>
+                <li><a href="gio.html" target="bank">Giỏ hàng</a></li>
+            </ul>
+        </div>
+        <div class="row mb ">
+            <div class="row">
+                <div class="banner mb">
+                    <img src="./images/cart.png" alt="">
+                    <script>
+                        var mangHinh = [
+                            "img/1.jpg",
+                            "img/2.jfif",
+                            "img/3.webp",
+                            "img/4.webp",
+                            "img/5.jfif",
+                            "img/6.jpg",
+                            "img/7.jfif",
+                            "img/8.webp",
+                            "img/9.webp"
+                        ]
+                        var index = 0;
+
+                        function next() {
+                            index++;
+                            if (index >= mangHinh.length) {
+                                index = 0;
+                            }
+                            var images = document.getElementById("show");
+                            images.src = mangHinh[index];
+                            document.getElementById("dem").innerText = index + 1 + '/9';
+                        }
+                        function prev() {
+                            index--;
+                            if (index < 0) {
+                                index = mangHinh.length - 1;
+                            }
+                            var images = document.getElementById("show");
+                            images.src = mangHinh[index];
+                            document.getElementById("dem").innerText = index + 1 + '/9';
+                        }
+                        function loadAnh() {
+                            var t = document.getElementById("show");
+                            if (index == 8) {
+                                index = 0;
+                            } else {
+                                index++;
+                            }
+                            t.src = mangHinh[index];
+
+                            document.getElementById("dem").innerHTML = index + 1 + "/9";
+                        }
+                        setInterval(loadAnh, 3000);
+                    </script>
+
+                    <div class="container">
+                        <h1>Các sản phẩm hàng bên dưới giỏ hàng</h1>
+                        <img src="./img/1.jpg" id="show" width="40%">
+                        <div class="icon">
+                            <button onclick="prev();"><</button>
+                        </div>
+                        <div class="next-icon">
+                            <button onclick="next();">></button>
+                        </div>
+                        <p id="dem">1/9</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="boxsp mr">
+                    <div class="row img"><img src="./img/1.jpg" alt=""></div>
+                    <p>$<span>10</span></p>
+                    <a href="#">Đồng hồ</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="./img/2.jfif" alt=""></div>
+                    <p>$<span>20</span></p>
+                    <a href="#">Laptop</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp ">
+                    <div class="row img"><img src="./img/3.webp" alt=""></div>
+                    <p>$<span>30</span></p>
+                    <a href="#">Đồng hồ trắng</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="./img/4.webp" alt=""></div>
+                    <p>$<span>40</span></p>
+                    <a href="#">Đồng hồ đen</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="./img/5.jfif" alt=""></div>
+                    <p>$<span>50</span></p>
+                    <a href="#">Nón</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp ">
+                    <div class="row img"><img src="./img/6.jpg" alt=""></div>
+                    <p>$<span>60</span></p>
+                    <a href="#">Vali</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="./img/7.jfif" alt=""></div>
+                    <p>$<span>70</span></p>
+                    <a href="#">Điện thoại</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="./img/8.webp" alt=""></div>
+                    <p>$<span>80</span></p>
+                    <a href="#">Điện thoại cam</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp ">
+                    <div class="row img"><img src="./img/9.webp" alt=""></div>
+                    <p>$<span>90</span></p>
+                    <a href="#">Đồng hồ tròn trắng</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+document.getElementById("showcart").style.display = "none";
+var arrsp = new Array;
+
+function themvaogiohang(x) {
+    var nodeSP = x.parentElement.children;
+    var hinh = nodeSP[0].children[0].src;
+    var giasp = nodeSP[1].children[0].innerText;
+    var tensp = nodeSP[2].innerText;
+    var soluong = nodeSP[3].value;
+    var sp = [hinh, tensp, giasp, soluong];
+    var ktra = 0;
+    for (var i = 0; i < giohang.length; i++) {
+        if (giohang[i][1] == tensp) {
+            var sl = giohang[i][3];
+            sl = Number(sl) + Number(soluong);
+            giohang[i][3] = sl;
+            ktra = 1;
+            break;
+        }
+    }
+
+    if (ktra == 0) giohang.push(sp);
+    demgiohang();
+    showmycart();
+    sessionStorage.setItem("ssgiohang", JSON.stringify(giohang));
+}
+document.getElementById("showcart").style.display = "none";
+
+var giohang = new Array;
+ 
+function themvaogiohang(x) {
+    var nodeSP = x.parentElement.children;
+    var hinh = nodeSP[0].children[0].src;
+    var giasp= nodeSP[1].children[0].innerText;
+    var tensp = nodeSP[2].innerText;
+    var soluong = nodeSP[3].value;
+    var sp = [hinh, tensp, giasp, soluong];
+    var ktra = 0;
+    for (var i = 0; i < giohang.length; i++) {
+        if (giohang[i][1] == tensp) {
+            var sl = giohang[i][3];
+            sl = Number(sl) + Number(soluong);
+            giohang[i][3] = sl;
+            ktra = 1;
+            break;
+        }
+    }
+
+    if (ktra == 0) giohang.push(sp);
+    demgiohang();
+    showmycart();
+    sessionStorage.setItem("ssgiohang", JSON.stringify(giohang));
+}
+
+function laydon() {
+    var gh_str = sessionStorage.getItem("ssgiohang");
+    var giohang = JSON.parse("gh_str");
+    var ttgh = "";
+    var tongtt = 0;
+    for (var i = 0; i < giohang.length; i++) {
+        var tt = Number(giohang[i][2]) * Number(giohang[i][3]);
+        tongtt += tt;
+        ttgh += `
+        <tr>
+            <td>${i + 1}</td>
+            <td><img src='${giohang[i][0]}'></td>
+            <td>${giohang[i][1]}</td>
+            <td>${giohang[i][2]}</td>
+            <td>${giohang[i][3]}</td>
+            <td>${tt} ($B)</td>
+        </tr>
+        `
+    }
+}
+
+function demgiohang() {
+    var a = giohang.length;
+    document.getElementById("countsp").innerText = a;
+}
+
+function showcart() {
+    var x = document.getElementById("showcart");
+    if (x.style.display == "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+    showmycart();
+}
+
+function showmycart() {
+    var ttgh = "";
+    var tongtt = 0;
+    for (var i = 0; i < giohang.length; i++) {
+        var tt = Number(giohang[i][2]) * Number(giohang[i][3]);
+        tongtt += tt;
+        ttgh += `
+        <tr>
+            <td>${i + 1}</td>
+<td><img src='${giohang[i][0]}'></td>
+            <td>${giohang[i][1]}</td>
+            <td>${giohang[i][2]}</td>
+            <td>${giohang[i][3]}</td>
+            <td>${tt} ($B)</td>
+        </tr>
+        `
+    }
+    ttgh += `
+    <tr>
+        <td colspan="5">TONG DON HANG</td>
+        <td>${tongtt} ($B)</td>
+    </tr>
+    `
+    document.getElementById("mycart").innerHTML = ttgh;
+}
+    </script>
+</body>
+
+</html>
